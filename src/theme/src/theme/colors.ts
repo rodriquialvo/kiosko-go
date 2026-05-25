@@ -1,0 +1,82 @@
+export const colors = {
+    background: "#080D12",
+    appBackgroundStart: "#02050A",
+    appBackgroundMid: "#071018",
+    appBackgroundEnd: "#03050A",
+  
+    surface: "#101820",
+    surfaceSoft: "#151F2A",
+    surfaceStrong: "#1B2633",
+    surfaceOverlay: "rgba(20, 28, 42, 0.88)",
+    surfaceOverlayStrong: "rgba(9, 15, 25, 0.92)",
+    surfaceIcon: "rgba(34, 44, 62, 0.92)",
+    surfaceGlass: "rgba(14, 24, 35, 0.78)",
+    surfaceGlassStrong: "rgba(15, 28, 40, 0.92)",
+  
+    card: "#121A24",
+    cardSoft: "#162231",
+    cardBorder: "rgba(125, 143, 166, 0.3)",
+    cardBorderStrong: "rgba(125, 143, 166, 0.34)",
+  
+    primary: "#22C55E",
+    primaryBright: "#27F15F",
+    primaryNeon: "#2FE55B",
+    primaryDark: "#16A34A",
+    primarySoft: "rgba(34, 197, 94, 0.12)",
+    primaryGlow: "rgba(39, 241, 95, 0.24)",
+    primaryGlowStrong: "rgba(39, 241, 95, 0.6)",
+    primaryLine: "rgba(39, 241, 95, 0.34)",
+    primaryLineSoft: "rgba(39, 241, 95, 0.22)",
+    primaryDot: "rgba(39, 241, 95, 0.58)",
+    primarySurface: "rgba(12, 85, 47, 0.72)",
+    primarySurfaceStrong: "rgba(14, 115, 59, 0.86)",
+  
+    secondary: "#6D28D9",
+    secondaryBright: "#8A53FF",
+    secondaryLight: "#7C3AED",
+    secondarySoft: "rgba(109, 40, 217, 0.14)",
+    secondaryGlow: "rgba(122, 67, 255, 0.26)",
+    secondaryDot: "rgba(122, 67, 255, 0.52)",
+    secondarySurface: "rgba(85, 31, 135, 0.72)",
+    secondarySurfaceStrong: "rgba(94, 39, 151, 0.86)",
+  
+    warning: "#F59E0B",
+    warningSoft: "rgba(245, 158, 11, 0.14)",
+    warningBright: "#FF9F1C",
+    warningSurface: "rgba(130, 78, 7, 0.72)",
+    warningSurfaceStrong: "rgba(153, 91, 8, 0.86)",
+  
+    danger: "#EF4444",
+    dangerBright: "#FF3B3B",
+    dangerSoft: "rgba(239, 68, 68, 0.14)",
+  
+    info: "#38BDF8",
+    infoSoft: "rgba(56, 189, 248, 0.14)",
+    infoSurface: "rgba(0, 109, 119, 0.7)",
+    infoSurfaceStrong: "rgba(0, 130, 140, 0.84)",
+  
+    success: "#22C55E",
+    successSoft: "rgba(34, 197, 94, 0.14)",
+  
+    text: "#F8FAFC",
+    textInverse: "#031009",
+    textMuted: "#94A3B8",
+    textMutedStrong: "#858D9E",
+    textSoft: "#CBD5E1",
+    textSoftBright: "#D3D7E0",
+    textBright: "#F7FAFF",
+    textDisabled: "#64748B",
+  
+    border: "#243241",
+    borderSoft: "#1E2A36",
+    dividerSoft: "rgba(211, 215, 224, 0.24)",
+  
+    input: "#151F2A",
+    inputOverlay: "rgba(7, 13, 23, 0.76)",
+    inputText: "#EEF2F7",
+  
+    white: "#FFFFFF",
+    black: "#000000",
+  
+    transparent: "transparent",
+  } as const;

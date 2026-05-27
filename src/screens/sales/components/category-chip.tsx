@@ -1,6 +1,6 @@
 import { Pressable } from "react-native";
 import Text from "@/components/Text/Text";
-import type { Category } from "../sales.controller";
+import type { Category } from "../sales.types";
 import { styles } from "../sales.styles";
 
 type CategoryChipProps = {

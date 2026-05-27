@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
-import { colors, theme } from "@/theme/src/theme";
 import { spacing, Theme } from "@/constants/theme";
+import { colors } from "@/theme/src/theme";
 
 export const styles = StyleSheet.create({
   screen: {
@@ -12,13 +12,7 @@ export const styles = StyleSheet.create({
     paddingTop: 54,
   },
   header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 22,
-  },
-  title: {
-    color: colors.textBright,
+    marginBottom: 0,
   },
   headerActions: {
     flexDirection: "row",
@@ -51,31 +45,28 @@ export const styles = StyleSheet.create({
   cartBadgeText: {
     color: colors.white,
   },
-  searchBox: {
-    minHeight: 56,
-    flexDirection: "row",
-    alignItems: "center",
-    borderWidth: 1,
-    borderRadius: 14,
-    borderColor: colors.cardBorder,
-    backgroundColor: colors.surfaceGlass,
-    paddingHorizontal: 16,
+  searchBar: {
     marginBottom: 18,
   },
-  searchText: {
-    color: colors.textMuted,
-    marginLeft: 12,
-  },
 
+  categories: {
+    flexGrow: 0,
+    height: 44,
+    marginBottom: 18,
+  },
   categoriesContent: {
+    alignItems: "center",
     gap: 10,
   },
   categoryChip: {
+    minHeight: 36,
+    alignItems: "center",
+    justifyContent: "center",
     borderWidth: 1,
     borderRadius: Theme.borderRadius.xxl,
     borderColor: colors.cardBorder,
     backgroundColor: colors.surfaceGlass,
-    padding: spacing.sm,
+    paddingHorizontal: 16,
   },
   categoryChipSelected: {
     borderColor: colors.primaryBright,
@@ -89,7 +80,6 @@ export const styles = StyleSheet.create({
   },
   productList: {
     paddingBottom: 124,
-    marginTop: 10,
   },
   productGrid: {
     flexDirection: "row",

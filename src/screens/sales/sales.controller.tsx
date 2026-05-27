@@ -1,65 +1,13 @@
-import { useMemo, useState } from "react";
-
-export type Product = {
-  id: string;
-  name: string;
-  stock: number;
-  price: string;
-  emoji: string;
-};
-
-export type Category = {
-  id: string;
-  label: string;
-};
-
-const products: Product[] = [
-  { id: "coca-cola-500", name: "Coca Cola 500ml", stock: 24, price: "$900", emoji: "🥤" },
-  { id: "lays-clasicas", name: "Papas Lay's Clásicas", stock: 16, price: "$1.200", emoji: "🍟" },
-  { id: "quilmes-473", name: "Cerveza Quilmes 473ml", stock: 12, price: "$1.500", emoji: "🍺" },
-  { id: "fernet-750", name: "Fernet Branca 750ml", stock: 8, price: "$7.500", emoji: "🍾" },
-  { id: "marlboro-box-20", name: "Marlboro Box 20", stock: 35, price: "$2.800", emoji: "🚬" },
-  { id: "agua-500", name: "Agua Mineral 500ml", stock: 40, price: "$600", emoji: "💧" },
-  { id: "snickers-50", name: "Snickers 50g", stock: 28, price: "$800", emoji: "🍫" },
-  { id: "baggio-200", name: "Jugo Baggio 200ml", stock: 18, price: "$700", emoji: "🧃" },
-];
-
-const categories: Category[] = [
-  { id: "all", label: "Todos" },
-  { id: "drinks", label: "Bebidas" },
-  { id: "snacks", label: "Snacks" },
-  { id: "alcohol", label: "Alcohol" },
-  { id: "cigarettes", label: "Cigarrillos" },
-  { id: "other", label: "Otro" },
-];
-
-function parsePrice(price: string): number {
-  return Number(price.replace(/\D/g, ""));
-}
-
-function formatPrice(value: number): string {
-  return `$${value.toLocaleString("es-AR")}`;
-}
+import { useState } from "react";
+import { router } from "expo-router";
+import { useCart } from "@/features/cart/cart.context";
+import { categories, products } from "./sales.data";
+import type { Product } from "./sales.types";
 
 export function useSalesController() {
   const [selectedCategoryId, setSelectedCategoryId] = useState("all");
   const [productQuantities, setProductQuantities] = useState<Record<string, number>>({});
-  const [cartQuantities, setCartQuantities] = useState<Record<string, number>>({});
-
-  const cartSummary = useMemo(() => {
-    const quantity = products.reduce((totalQuantity, product) => {
-      return totalQuantity + (cartQuantities[product.id] ?? 0);
-    }, 0);
-
-    const total = products.reduce((totalAmount, product) => {
-      return totalAmount + (cartQuantities[product.id] ?? 0) * parsePrice(product.price);
-    }, 0);
-
-    return {
-      quantity,
-      total: formatPrice(total),
-    };
-  }, [cartQuantities]);
+  const { addProduct, summary: cartSummary } = useCart();
 
   const handleIncreaseProductQuantity = (product: Product) => {
     setProductQuantities((currentQuantities) => ({
@@ -91,10 +39,7 @@ export function useSalesController() {
       return;
     }
 
-    setCartQuantities((currentQuantities) => ({
-      ...currentQuantities,
-      [product.id]: Math.min((currentQuantities[product.id] ?? 0) + selectedQuantity, product.stock),
-    }));
+    addProduct(product, selectedQuantity);
 
     setProductQuantities((currentQuantities) => {
       const { [product.id]: _selectedQuantity, ...remainingQuantities } = currentQuantities;
@@ -102,7 +47,10 @@ export function useSalesController() {
     });
   };
 
-  const handleOpenCart = () => {};
+  const handleOpenCart = () => {
+    router.push("/cart");
+  };
+
   const handleOpenHistory = () => {};
 
   return {

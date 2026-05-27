@@ -53,7 +53,7 @@ export default function HomeScreen() {
 
         <View style={styles.cashCard}>
           <View style={styles.cashIconBox}>
-            <MaterialCommunityIcons name="cash-register" size={54} color={colors.primaryBright} />
+            <MaterialCommunityIcons name="cash-register" size={46} color={colors.primaryBright} />
           </View>
           <View style={styles.cashTextGroup}>
             <Text size={18} weight={600} style={styles.mutedText}>

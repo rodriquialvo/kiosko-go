@@ -1,12 +1,12 @@
-import { Colors, Theme } from "@/constants/theme";
 import { StyleSheet } from "react-native";
+import { Theme } from "@/constants/theme";
+import { colors } from "@/theme/src/theme";
 
 export const styles = StyleSheet.create({
   container: {
     width: "100%",
   },
   content: {
-    paddingTop: 18,
     paddingBottom: 20,
   },
   topBar: {
@@ -18,11 +18,16 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     flex: 1,
+    minWidth: 0,
   },
   centerContent: {
     marginLeft: 12,
     justifyContent: "center",
-    flexShrink: 1,
+    flex: 1,
+    minWidth: 0,
+  },
+  centerContentWithoutLeft: {
+    marginLeft: 0,
   },
   rightSection: {
     marginLeft: 12,
@@ -30,20 +35,22 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
-    color: Colors.white,
+    color: colors.textBright,
   },
   subtitle: {
-    color: Colors.white,
+    color: colors.textMuted,
     marginTop: 2,
   },
   childrenContainer: {
     marginTop: 16,
   },
   iconButton: {
-    width: 56,
-    height: 56,
-    borderRadius: Theme.borderRadius.full,
-    backgroundColor: Colors.backgroundButtonsHeader,
+    width: 48,
+    height: 48,
+    borderWidth: 1,
+    borderRadius: Theme.borderRadius.xl,
+    borderColor: colors.cardBorder,
+    backgroundColor: colors.surfaceGlass,
     alignItems: "center",
     justifyContent: "center",
   },

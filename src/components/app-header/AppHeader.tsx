@@ -1,9 +1,8 @@
-import { Ionicons } from "@expo/vector-icons";
-import React from "react";
-import { Pressable, StyleProp, TextStyle, View, ViewStyle } from "react-native";
-
-import { Colors } from "@/constants/theme";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
+import type { ReactNode } from "react";
+import { Pressable, View, type StyleProp, type TextStyle, type ViewStyle } from "react-native";
+import { colors } from "@/theme/src/theme";
 import Text from "../Text/Text";
 import { styles } from "./AppHeader.styles";
 
@@ -12,9 +11,9 @@ type Props = {
   subtitle?: string;
   showBack?: boolean;
   onBack?: () => void;
-  leftComponent?: React.ReactNode;
-  rightComponent?: React.ReactNode;
-  children?: React.ReactNode;
+  leftComponent?: ReactNode;
+  rightComponent?: ReactNode;
+  children?: ReactNode;
   containerStyle?: StyleProp<ViewStyle>;
   contentStyle?: StyleProp<ViewStyle>;
   backgroundColor?: string;
@@ -33,42 +32,48 @@ export const AppHeader = ({
   children,
   containerStyle,
   contentStyle,
-  backgroundColor = "transparent",
+  backgroundColor = colors.transparent,
   paddedBottom = 20,
   subtitleStyle,
   titleStyle,
 }: Props) => {
-  const renderLeft = () => {
+  const renderLeft = (): ReactNode => {
     if (leftComponent) return leftComponent;
 
     if (showBack) {
       return (
-        <Pressable onPress={onBack} style={styles.iconButton}>
-          <Ionicons name="arrow-back" size={22} color={Colors.white} />
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+          onPress={onBack}
+          style={styles.iconButton}
+        >
+          <MaterialCommunityIcons name="chevron-left" size={30} color={colors.textBright} />
         </Pressable>
       );
     }
 
     return null;
   };
+  const leftElement = renderLeft();
 
   return (
     <View style={[styles.container, { backgroundColor }, containerStyle]}>
       <View style={[styles.content, { paddingBottom: paddedBottom }, contentStyle]}>
         <View style={styles.topBar}>
           <View style={styles.leftSection}>
-            {renderLeft()}
+            {leftElement}
 
-            <View style={styles.centerContent}>
-              <Text weight={600} size={24} numberOfLines={1} style={[styles.title, titleStyle]}>
+            <View style={[styles.centerContent, !leftElement && styles.centerContentWithoutLeft]}>
+              <Text weight={800} size={24} numberOfLines={1} style={[styles.title, titleStyle]}>
                 {title}
               </Text>
 
               {!!subtitle && (
                 <Text
                   numberOfLines={1}
-                  weight={400}
-                  size={16}
+                  weight={500}
+                  size={14}
                   style={[styles.subtitle, subtitleStyle]}
                 >
                   {subtitle}

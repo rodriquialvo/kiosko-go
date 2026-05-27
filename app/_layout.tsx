@@ -15,6 +15,7 @@ import { ExtendedStackNavigationOptions } from "expo-router/build/layouts/StackC
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { TouchableOpacity, View } from "react-native";
+import { CartProvider } from "@/features/cart/cart.context";
 import { images } from "../src/constants/images";
 import { Colors, headerTheme } from "../src/constants/theme";
 
@@ -68,9 +69,14 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="index" options={optionsHeaderDefault} />
-      <Stack.Screen name="root" options={{ headerShown: false }} />
-    </Stack>
+    <CartProvider>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" options={optionsHeaderDefault} />
+        <Stack.Screen name="root" options={{ headerShown: false }} />
+        <Stack.Screen name="cart" options={{ headerShown: false }} />
+        <Stack.Screen name="checkout" options={{ headerShown: false }} />
+        <Stack.Screen name="sale-success" options={{ headerShown: false }} />
+      </Stack>
+    </CartProvider>
   );
 }

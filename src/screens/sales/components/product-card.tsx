@@ -2,7 +2,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Pressable, View } from "react-native";
 import Text from "@/components/Text/Text";
 import { colors } from "@/theme/src/theme";
-import type { Product } from "../sales.controller";
+import type { Product } from "../sales.types";
 import { styles } from "../sales.styles";
 
 type ProductCardProps = {

@@ -1,5 +1,5 @@
-import { TabPlaceholderScreen } from "@/components/navigation/tab-placeholder-screen";
+import CashScreen from "@/screens/cash/cash.screen";
 
 export default function CashRoute() {
-  return <TabPlaceholderScreen title="Caja" />;
+  return <CashScreen />;
 }

@@ -89,7 +89,7 @@ export function PrimaryButton({
       {leftIconEl && <View style={styles.leftIcon}>{leftIconEl}</View>}
 
       <Text
-        size={18}
+        size={14}
         weight={700}
         style={[
           styles.text,

@@ -18,6 +18,7 @@ export function QuickAccessCard({ item }: QuickAccessCardProps) {
         styles.quickAccessCard,
         { backgroundColor: item.backgroundColor, borderColor: item.borderColor },
       ]}
+      onPress={item.onPress}
     >
       <MaterialCommunityIcons name={item.icon} size={32} color={colors.white} />
       <Text size={18} weight={600} style={styles.quickAccessTitle}>

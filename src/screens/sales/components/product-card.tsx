@@ -4,6 +4,7 @@ import Text from "@/components/Text/Text";
 import { colors } from "@/theme/src/theme";
 import type { Product } from "../sales.types";
 import { styles } from "../sales.styles";
+import { Image } from "expo-image";
 
 type ProductCardProps = {
   item: Product;
@@ -23,9 +24,10 @@ export function ProductCard({
   return (
     <View style={styles.productCard}>
       <View style={styles.productImageBox}>
-        <Text size={40} weight={700} style={styles.productEmoji}>
-          {item.emoji}
-        </Text>
+        <Image
+          source={item.image}
+          style={{height:100, width:40}}
+        />
       </View>
       <View style={styles.productInfo}>
         <Text size={14} weight={600} numberOfLines={2} style={styles.productName}>

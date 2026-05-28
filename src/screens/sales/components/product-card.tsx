@@ -1,10 +1,10 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Pressable, View } from "react-native";
+import { Image } from "expo-image";
 import Text from "@/components/Text/Text";
 import { colors } from "@/theme/src/theme";
 import type { Product } from "../sales.types";
 import { styles } from "../sales.styles";
-import { Image } from "expo-image";
 
 type ProductCardProps = {
   item: Product;
@@ -24,10 +24,13 @@ export function ProductCard({
   return (
     <View style={styles.productCard}>
       <View style={styles.productImageBox}>
-        <Image
-          source={item.image}
-          style={{height:100, width:40}}
-        />
+        {item.image ? (
+          <Image source={item.image} style={styles.productImage} contentFit="contain" />
+        ) : (
+          <Text size={32} weight={600} style={styles.productEmoji}>
+            {item.emoji}
+          </Text>
+        )}
       </View>
       <View style={styles.productInfo}>
         <Text size={14} weight={600} numberOfLines={2} style={styles.productName}>

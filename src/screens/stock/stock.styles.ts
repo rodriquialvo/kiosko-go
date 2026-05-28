@@ -168,6 +168,12 @@ export const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: colors.surfaceIcon,
     marginRight: 14,
+    overflow: "hidden",
+    padding: 6,
+  },
+  productImage: {
+    width: "100%",
+    height: "100%",
   },
   productEmoji: {
     textAlign: "center",

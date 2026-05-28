@@ -88,7 +88,7 @@ export const styles = StyleSheet.create({
   },
   productCard: {
     width: "48%",
-    minHeight: 260,
+    minHeight: 292,
     borderWidth: 1,
     borderRadius: 14,
     borderColor: colors.cardBorder,
@@ -97,12 +97,19 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   productImageBox: {
-    height: 64,
+    height: 104,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 12,
     backgroundColor: colors.surfaceIcon,
     marginBottom: 12,
+    overflow: "hidden",
+    padding: 8,
+  },
+  productImage: {
+    width: "100%",
+    height: "100%",
+    borderRadius: Theme.borderRadius.xxl
   },
   productEmoji: {
     textAlign: "center",

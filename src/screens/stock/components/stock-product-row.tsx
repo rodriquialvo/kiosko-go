@@ -1,4 +1,5 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Image } from "expo-image";
 import { Pressable, View } from "react-native";
 import Text from "@/components/Text/Text";
 import { colors } from "@/theme/src/theme";
@@ -43,9 +44,13 @@ export function StockProductRow({ item, onPress }: StockProductRowProps) {
       style={styles.productRow}
     >
       <View style={styles.productImageBox}>
-        <Text size={30} weight={600} style={styles.productEmoji}>
-          {item.emoji}
-        </Text>
+        {item.image ? (
+          <Image source={item.image} style={styles.productImage} contentFit="contain" />
+        ) : (
+          <Text size={30} weight={600} style={styles.productEmoji}>
+            {item.emoji}
+          </Text>
+        )}
       </View>
 
       <View style={styles.productTextGroup}>

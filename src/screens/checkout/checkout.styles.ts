@@ -6,6 +6,9 @@ export const styles = StyleSheet.create({
   screen: {
     paddingHorizontal: 0,
   },
+  keyboardAvoidingView: {
+    flex: 1,
+  },
   content: {
     flex: 1,
     paddingHorizontal: 20,
@@ -15,7 +18,8 @@ export const styles = StyleSheet.create({
     marginBottom: 8,
   },
   scrollContent: {
-    paddingBottom: 140,
+    flexGrow: 1,
+    paddingBottom: 24,
   },
   totalCard: {
     borderWidth: 1,
@@ -110,9 +114,7 @@ export const styles = StyleSheet.create({
     marginTop: 12,
   },
   confirmWrapper: {
-    position: "absolute",
-    right: 20,
-    bottom: 28,
-    left: 20,
+    paddingHorizontal: 20,
+    paddingBottom: 28,
   },
 });

@@ -1,6 +1,7 @@
 import type { ComponentProps } from "react";
 import type { MaterialCommunityIcons } from "@expo/vector-icons";
 import { colors } from "@/theme/src/theme";
+import { router } from "expo-router";
 
 export type IconName = ComponentProps<typeof MaterialCommunityIcons>["name"];
 
@@ -19,6 +20,7 @@ export type QuickAccessItem = {
   icon: IconName;
   backgroundColor: string;
   borderColor: string;
+  onPress?: () => void;
 };
 
 export type AlertItem = {
@@ -73,6 +75,7 @@ export function useHomeController() {
       icon: "cart-outline",
       backgroundColor: colors.primarySurfaceStrong,
       borderColor: colors.primaryBright,
+      onPress: () => router.push("/(tabs)/sales")
     },
 
     {
@@ -81,6 +84,7 @@ export function useHomeController() {
       icon: "warehouse",
       backgroundColor: colors.warningSurfaceStrong,
       borderColor: colors.warning,
+      onPress: () => router.push("/(tabs)/stock")
     },
     {
       title: "Caja",
@@ -88,6 +92,7 @@ export function useHomeController() {
       icon: "cash-register",
       backgroundColor: colors.infoSurfaceStrong,
       borderColor: colors.info,
+      onPress: () => router.push("/(tabs)/cash")
     },
   ];
 

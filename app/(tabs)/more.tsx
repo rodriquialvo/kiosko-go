@@ -1,5 +1,5 @@
-import { TabPlaceholderScreen } from "@/components/navigation/tab-placeholder-screen";
+import MoreScreen from "@/screens/more/more.screen";
 
 export default function MoreRoute() {
-  return <TabPlaceholderScreen title="Más" />;
+  return <MoreScreen />;
 }

@@ -1,3 +1,7 @@
+import { useState } from "react";
+
+export type CashStatus = "open" | "closed";
+
 export type CashMetric = {
   id: string;
   title: string;
@@ -21,6 +25,33 @@ export type CashSummaryRow = {
   value: string;
   variant: "neutral" | "income" | "expense";
 };
+
+export type LastClosedCash = {
+  openedAt: string;
+  closedAt: string;
+  employee: string;
+  totalSales: string;
+  cashSales: string;
+  expectedCash: string;
+  countedCash: string;
+  difference: string;
+};
+
+export type OpenCashForm = {
+  initialFund: string;
+  responsible: string;
+  observation: string;
+};
+
+export type OpenCashFormField = keyof OpenCashForm;
+
+export type CloseCashForm = {
+  countedCash: string;
+  responsible: string;
+  observation: string;
+};
+
+export type CloseCashFormField = keyof CloseCashForm;
 
 const metrics: CashMetric[] = [
   {
@@ -87,21 +118,106 @@ const summaryRows: CashSummaryRow[] = [
   { id: "expenses", label: "Egresos", value: "-$8.500", variant: "expense" },
 ];
 
+const lastClosedCash: LastClosedCash = {
+  openedAt: "08:00 hs",
+  closedAt: "Hoy 14:30 hs",
+  employee: "Juan Pérez",
+  totalSales: "$170.680",
+  cashSales: "$85.700",
+  expectedCash: "$135.200",
+  countedCash: "$134.700",
+  difference: "-$500",
+};
+
+const defaultOpenCashForm: OpenCashForm = {
+  initialFund: "$50.000",
+  responsible: "Juan Pérez",
+  observation: "",
+};
+
+const defaultCloseCashForm: CloseCashForm = {
+  countedCash: "$201.680",
+  responsible: "Juan Pérez",
+  observation: "",
+};
+
 export function useCashController() {
+  const [cashStatus, setCashStatus] = useState<CashStatus>("closed");
+  const [isOpenCashModalVisible, setIsOpenCashModalVisible] = useState(false);
+  const [isCloseCashModalVisible, setIsCloseCashModalVisible] = useState(false);
+  const [lastClosedCashState, setLastClosedCashState] = useState<LastClosedCash>(lastClosedCash);
+  const [openCashForm, setOpenCashForm] = useState<OpenCashForm>(defaultOpenCashForm);
+  const [closeCashForm, setCloseCashForm] = useState<CloseCashForm>(defaultCloseCashForm);
+
   const handleOpenHistory = () => {};
   const handleOpenMetric = (_metricId: string) => {};
   const handleOpenMovement = (_movementId: string) => {};
   const handleRegisterMovement = () => {};
-  const handleCloseCash = () => {};
+  const handleCloseCash = () => {
+    setIsCloseCashModalVisible(true);
+  };
+  const handleOpenCashModal = () => {
+    setIsOpenCashModalVisible(true);
+  };
+  const handleCloseOpenCashModal = () => {
+    setIsOpenCashModalVisible(false);
+  };
+  const handleChangeOpenCashField = (field: OpenCashFormField, value: string) => {
+    setOpenCashForm((currentForm) => ({
+      ...currentForm,
+      [field]: value,
+    }));
+  };
+  const handleCloseCloseCashModal = () => {
+    setIsCloseCashModalVisible(false);
+  };
+  const handleChangeCloseCashField = (field: CloseCashFormField, value: string) => {
+    setCloseCashForm((currentForm) => ({
+      ...currentForm,
+      [field]: value,
+    }));
+  };
+  const handleConfirmOpenCash = () => {
+    setCashStatus("open");
+    setIsOpenCashModalVisible(false);
+  };
+  const handleConfirmCloseCash = () => {
+    setLastClosedCashState({
+      openedAt: "08:00 hs",
+      closedAt: "Hoy 15:10 hs",
+      employee: closeCashForm.responsible,
+      totalSales: "$152.380",
+      cashSales: "$85.700",
+      expectedCash: "$202.180",
+      countedCash: closeCashForm.countedCash,
+      difference: "-$500",
+    });
+    setCashStatus("closed");
+    setIsCloseCashModalVisible(false);
+  };
 
   return {
+    cashStatus,
+    closeCashForm,
     currentCash: "$152.680",
     expectedCash: "$202.180",
+    isCashOpen: cashStatus === "open",
+    isCloseCashModalVisible,
+    isOpenCashModalVisible,
+    lastClosedCash: lastClosedCashState,
     openedAt: "Abierta hoy 08:00 hs",
+    openCashForm,
     metrics,
     movements,
     summaryRows,
+    handleChangeCloseCashField,
+    handleChangeOpenCashField,
+    handleCloseCloseCashModal,
+    handleCloseOpenCashModal,
+    handleConfirmCloseCash,
+    handleConfirmOpenCash,
     handleOpenHistory,
+    handleOpenCashModal,
     handleOpenMetric,
     handleOpenMovement,
     handleRegisterMovement,

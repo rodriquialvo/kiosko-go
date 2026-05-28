@@ -32,7 +32,7 @@ export function CashSummaryCard({ rows, expectedCash }: CashSummaryCardProps) {
         <Text size={16} weight={800} style={styles.expectedCashLabel}>
           Dinero esperado en caja
         </Text>
-        <Text size={22} weight={800} style={styles.expectedCashValue}>
+        <Text size={20} weight={800} style={styles.expectedCashValue}>
           {expectedCash}
         </Text>
       </View>

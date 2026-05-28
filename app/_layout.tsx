@@ -76,6 +76,7 @@ export default function RootLayout() {
         <Stack.Screen name="checkout" options={{ headerShown: false }} />
         <Stack.Screen name="sale-history" options={{ headerShown: false }} />
         <Stack.Screen name="sale-success" options={{ headerShown: false }} />
+        <Stack.Screen name="stock-history" options={{ headerShown: false }} />
       </Stack>
     </CartProvider>
   );

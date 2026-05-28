@@ -51,7 +51,9 @@ export function useSalesController() {
     router.push("/cart");
   };
 
-  const handleOpenHistory = () => {};
+  const handleOpenHistory = () => {
+    router.push("/sale-history");
+  };
 
   return {
     categories,

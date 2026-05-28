@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { router } from "expo-router";
 import type { ImageSourcePropType } from "react-native";
 import { images } from "@/constants/images";
 
@@ -95,7 +96,9 @@ export function useStockController() {
     });
   }, [searchValue, selectedFilterId]);
 
-  const handleOpenHistory = () => {};
+  const handleOpenHistory = () => {
+    router.push("/stock-history");
+  };
   const handleOpenLowStock = () => {};
   const handleOpenAction = (_actionId: string) => {};
   const handleOpenProduct = (_productId: string) => {};

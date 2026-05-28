@@ -27,7 +27,7 @@ export function CashActionButton({ title, icon, variant, onPress }: CashActionBu
         color={isPrimary ? colors.white : colors.secondaryBright}
       />
       <Text
-        size={13}
+        size={14}
         weight={800}
         numberOfLines={1}
         style={[styles.actionButtonText, isPrimary && styles.actionButtonTextPrimary]}

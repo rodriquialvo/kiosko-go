@@ -86,6 +86,118 @@ export const styles = StyleSheet.create({
   statusPillText: {
     color: colors.primaryBright,
   },
+  closedCashCard: {
+    minHeight: 176,
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderRadius: 18,
+    borderColor: colors.warningBright,
+    backgroundColor: colors.warningSoft,
+    padding: 18,
+    marginBottom: 16,
+  },
+  closedCashIconBox: {
+    width: 62,
+    height: 62,
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 1,
+    borderRadius: 18,
+    borderColor: colors.warningBright,
+    backgroundColor: colors.warningSoft,
+    marginRight: 16,
+  },
+  closedCashTextGroup: {
+    flex: 1,
+    minWidth: 0,
+  },
+  closedCashTitle: {
+    color: colors.warningBright,
+  },
+  closedCashDescription: {
+    color: colors.textBright,
+    marginTop: 8,
+  },
+  closedCashMeta: {
+    color: colors.textSoft,
+    marginTop: 8,
+  },
+  closedStatusCard: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderRadius: 16,
+    borderColor: colors.cardBorder,
+    backgroundColor: colors.surfaceGlass,
+    padding: 16,
+    marginBottom: 18,
+  },
+  closedStatusIconBox: {
+    width: 52,
+    height: 52,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 16,
+    backgroundColor: colors.warningSoft,
+    marginRight: 14,
+  },
+  closedStatusTextGroup: {
+    flex: 1,
+    minWidth: 0,
+  },
+  closedStatusTitle: {
+    color: colors.textMuted,
+  },
+  closedStatusValue: {
+    color: colors.textBright,
+    marginTop: 6,
+  },
+  closedStatusDescription: {
+    color: colors.textSoft,
+    marginTop: 6,
+  },
+  lastClosedCard: {
+    borderWidth: 1,
+    borderRadius: 16,
+    borderColor: colors.cardBorder,
+    backgroundColor: colors.surfaceGlass,
+    overflow: "hidden",
+    marginBottom: 24,
+  },
+  lastClosedTitle: {
+    color: colors.textBright,
+    paddingHorizontal: 18,
+    paddingTop: 18,
+    paddingBottom: 8,
+  },
+  lastClosedRows: {
+    paddingBottom: 8,
+  },
+  lastClosedRow: {
+    minHeight: 44,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    borderTopWidth: 1,
+    borderTopColor: colors.dividerSoft,
+    paddingHorizontal: 18,
+  },
+  lastClosedLabel: {
+    flex: 1,
+    color: colors.textSoft,
+    marginRight: 12,
+  },
+  lastClosedValue: {
+    color: colors.textBright,
+    textAlign: "right",
+  },
+  lastClosedValueIncome: {
+    color: colors.primaryBright,
+  },
+  lastClosedValueExpense: {
+    color: colors.dangerBright,
+  },
   metricsGrid: {
     // flexDirection: "row",
     flexWrap: "wrap",
@@ -255,5 +367,102 @@ export const styles = StyleSheet.create({
   closeButton: {
     flex: 1,
     minHeight: 64,
+  },
+  actionButton: {
+    minHeight: 64,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 1,
+    borderRadius: 16,
+    paddingHorizontal: 14,
+  },
+  actionButtonPrimary: {
+    borderColor: colors.primaryBright,
+    backgroundColor: colors.primaryBright,
+  },
+  actionButtonSecondary: {
+    borderColor: colors.secondaryBright,
+    backgroundColor: colors.secondarySoft,
+  },
+  actionButtonText: {
+    color: colors.secondaryBright,
+    marginLeft: 8,
+  },
+  actionButtonTextPrimary: {
+    color: colors.white,
+  },
+  modalOverlay: {
+    flex: 1,
+    justifyContent: "flex-end",
+    backgroundColor: colors.surfaceOverlayStrong,
+  },
+  modalBackdrop: {
+    ...StyleSheet.absoluteFill,
+  },
+  openCashModalCard: {
+    borderTopWidth: 1,
+    borderRightWidth: 1,
+    borderLeftWidth: 1,
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    borderColor: colors.cardBorderStrong,
+    backgroundColor: colors.appBackgroundMid,
+    padding: 20,
+  },
+  openCashTitle: {
+    color: colors.textBright,
+    marginBottom: 18,
+  },
+  openCashField: {
+    marginBottom: 14,
+  },
+  openCashLabel: {
+    color: colors.textBright,
+    marginBottom: 8,
+  },
+  openCashInput: {
+    minHeight: 52,
+    borderWidth: 1,
+    borderRadius: 14,
+    borderColor: colors.cardBorder,
+    backgroundColor: colors.inputOverlay,
+    color: colors.inputText,
+    paddingHorizontal: 14,
+    fontSize: 16,
+  },
+  openCashInputMultiline: {
+    minHeight: 92,
+    paddingTop: 14,
+    textAlignVertical: "top",
+  },
+  closeCashExpectedRow: {
+    minHeight: 58,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    borderWidth: 1,
+    borderRadius: 14,
+    borderColor: colors.primaryLineSoft,
+    backgroundColor: colors.primarySoft,
+    paddingHorizontal: 14,
+    marginBottom: 14,
+  },
+  closeCashExpectedLabel: {
+    flex: 1,
+    color: colors.textSoft,
+    marginRight: 10,
+  },
+  closeCashExpectedValue: {
+    color: colors.primaryBright,
+  },
+  openCashActions: {
+    flexDirection: "row",
+    gap: 12,
+    marginTop: 6,
+  },
+  openCashActionButton: {
+    flex: 1,
+    minHeight: 56,
   },
 });
